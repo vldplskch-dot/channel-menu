@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Меню каналу</title>
-    <!-- Підключення скрипта Telegram Web App -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        /* Стилі, що імітують вигляд Telegram */
         :root {
-            /* Використання змінних кольорів Telegram */
             --tg-bg: var(--tg-theme-bg-color, #ffffff);
             --tg-text: var(--tg-theme-text-color, #000000);
             --tg-hint: var(--tg-theme-hint-color, #999999);
@@ -25,7 +22,7 @@
             color: var(--tg-text);
             margin: 0;
             padding: 15px;
-            overscroll-behavior-y: none; /* Заборона "відтягування" сторінки */
+            overscroll-behavior-y: none;
         }
 
         .container {
@@ -39,7 +36,6 @@
             margin-bottom: 20px;
         }
 
-        /* Стилі для кнопок меню */
         .menu-button {
             background-color: var(--tg-secondary-bg);
             border-radius: 10px;
@@ -55,13 +51,11 @@
             color: var(--tg-text);
             transition: transform 0.1s ease;
         }
-        
-        /* Ефект натискання */
+
         .menu-button:active {
             transform: scale(0.98);
         }
 
-        /* Стилі для посилань на статті */
         .article-link {
             display: block;
             background-color: var(--tg-secondary-bg);
@@ -74,12 +68,11 @@
             font-weight: 500;
             transition: transform 0.1s ease;
         }
-        
+
         .article-link:active {
             transform: scale(0.98);
         }
 
-        /* Кнопка "Назад" */
         .back-button {
             background-color: var(--tg-button);
             color: var(--tg-button-text);
@@ -92,264 +85,128 @@
             cursor: pointer;
             margin-top: 10px;
         }
-        
+
         .back-button:active {
             opacity: 0.8;
         }
 
-        /* Приховані секції */
         .hidden-section {
             display: none;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
 
-        <!-- Секція 1: Головне меню (ID: main-menu) -->
         <div id="main-menu" class="section">
             <h1>Навігація по каналу</h1>
-            
-            <!-- ЗАМІНІТЬ 'Тема 1' на назву вашого розділу -->
-            <button class="menu-button" onclick="showSection('topic-1')">
-                📚 Тема 1: Inits
-            </button>
-            
-            <!-- ЗАМІНІТЬ 'Тема 2' на назву вашого розділу -->
-            <button class="menu-button" onclick="showSection('topic-2')">
-                📚 Тема 2: New connections
-            </button>
-            
-            <!-- ЗАМІНІТЬ 'Тема 3' на назву вашого розділу -->
-            <button class="menu-button" onclick="showSection('topic-3')">
-                📚 Тема 3: TU profile
-            </button>
 
-            <!-- ЗАМІНІТЬ 'Тема 1' на назву вашого розділу -->
-            <button class="menu-button" onclick="showSection('topic-4')">
-                📚 Тема 4: LatAm
-            </button>
-
-            <!-- ЗАМІНІТЬ 'Тема 1' на назву вашого розділу -->
-            <button class="menu-button" onclick="showSection('topic-5')">
-                📚 Тема 5: Functional
-            </button>
-
-            <!-- ЗАМІНІТЬ 'Тема 1' на назву вашого розділу -->
-            <button class="menu-button" onclick="showSection('topic-6')">
-                📚 Тема 6: Ton of voice
-            </button>
-
-            <!-- ЗАМІНІТЬ 'Тема 1' на назву вашого розділу -->
-            <button class="menu-button" onclick="showSection('topic-7')">
-                📚 Тема 7: Retention
-            </button>
-
-            <!-- ЗАМІНІТЬ 'Тема 1' на назву вашого розділу -->
-            <button class="menu-button" onclick="showSection('topic-8')">
-                📚 Тема 8: Tableau
-            </button>
+            <button class="menu-button" onclick="showSection('topic-1')">📚 Тема 1: Inits</button>
+            <button class="menu-button" onclick="showSection('topic-2')">📚 Тема 2: New connections</button>
+            <button class="menu-button" onclick="showSection('topic-3')">📚 Тема 3: TU profile</button>
+            <button class="menu-button" onclick="showSection('topic-4')">📚 Тема 4: LatAm</button>
+            <button class="menu-button" onclick="showSection('topic-5')">📚 Тема 5: Functional</button>
+            <button class="menu-button" onclick="showSection('topic-6')">📚 Тема 6: Ton of voice</button>
+            <button class="menu-button" onclick="showSection('topic-7')">📚 Тема 7: Retention</button>
+            <button class="menu-button" onclick="showSection('topic-8')">📚 Тема 8: Tableau</button>
         </div>
 
-        <!-- Секція 2: Підменю "Тема 1" (ID: topic-1) -->
+        <!-- Секції -->
         <div id="topic-1" class="section hidden-section">
             <h1>📚 Тема 1: Inits</h1>
-            
-            <!-- 
-              ЗАМІНІТЬ 'https://t.me/your_channel_name/101' на посилання на ваш пост
-              ЗАМІНІТЬ 'Стаття про початок' на назву вашої статті
-            -->
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/10')">
-                Icebreakers
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/15')">
-                Chat requests
-            </a>
-            
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/10')">Icebreakers</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/15')">Chat requests</a>
             <button class="back-button" onclick="showSection('main-menu')">⬅️ Назад</button>
         </div>
 
-        <!-- Секція 3: Підменю "Тема 2" (ID: topic-2) -->
         <div id="topic-2" class="section hidden-section">
             <h1>📚 Тема 2: New connections</h1>
-            
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/19')">
-                Retention of new ice connection
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/22')">
-                New dialogs (first 3 days)
-            </a>
-
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/19')">Retention of new ice connection</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/22')">New dialogs (first 3 days)</a>
             <button class="back-button" onclick="showSection('main-menu')">⬅️ Назад</button>
         </div>
 
-        <!-- Секція 4: Підменю "Тема 3" (ID: topic-3) -->
         <div id="topic-3" class="section hidden-section">
             <h1>📚 Тема 3: TU profile</h1>
-            
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/26')">
-                High CTR profile part 1: підбір Аватарок
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/29')">
-                TOP profile part 2: опис профілю + newsfeeds
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/34')">
-                Top profile part 3: робота медіа
-            </a>
-            
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/26')">High CTR profile part 1: підбір Аватарок</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/29')">TOP profile part 2: опис профілю + newsfeeds</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/34')">Top profile part 3: робота медіа</a>
             <button class="back-button" onclick="showSection('main-menu')">⬅️ Назад</button>
         </div>
 
         <div id="topic-4" class="section hidden-section">
             <h1>📚 Тема 4: LatAm</h1>
-            
-            <!-- 
-              ЗАМІНІТЬ 'https://t.me/your_channel_name/101' на посилання на ваш пост
-              ЗАМІНІТЬ 'Стаття про початок' на назву вашої статті
-            -->
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/37')">
-                Специфіка регіону LatAm
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/40')">
-                Топ профілі ЛатАм і їх робота в діалогах
-            </a>
-            
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/37')">Специфіка регіону LatAm</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/40')">Топ профілі ЛатАм і їх робота в діалогах</a>
             <button class="back-button" onclick="showSection('main-menu')">⬅️ Назад</button>
         </div>
 
         <div id="topic-5" class="section hidden-section">
             <h1>📚 Тема 5: Functional</h1>
-            
-            <!-- 
-              ЗАМІНІТЬ 'https://t.me/your_channel_name/101' на посилання на ваш пост
-              ЗАМІНІТЬ 'Стаття про початок' на назву вашої статті
-            -->
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/42')">
-                Ексклюзивні пости
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/45')">
-                Робота з кореспонденцією
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/48')">
-                Virtual gifts
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/51')">
-                Real Gifts
-            </a>
-            
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/42')">Ексклюзивні пости</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/45')">Робота з кореспонденцією</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/48')">Virtual gifts</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/51')">Real Gifts</a>
             <button class="back-button" onclick="showSection('main-menu')">⬅️ Назад</button>
         </div>
 
         <div id="topic-6" class="section hidden-section">
             <h1>📚 Тема 6: Ton of voice</h1>
-            
-            <!-- 
-              ЗАМІНІТЬ 'https://t.me/your_channel_name/101' на посилання на ваш пост
-              ЗАМІНІТЬ 'Стаття про початок' на назву вашої статті
-            -->
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/56')">
-                Free activity - як зацікавлювати RU з першого wink-у
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/59')">
-                Компліменти RU + інформація з профіля
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/62')">
-                TU’s history + оформлення повідомлень
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/65')">
-                Безініціативні відповіді vs персоналізовані
-            </a>
-            
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/56')">Free activity - як зацікавлювати RU з першого wink-у</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/59')">Компліменти RU + інформація з профіля</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/62')">TU’s history + оформлення повідомлень</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/65')">Безініціативні відповіді vs персоналізовані</a>
             <button class="back-button" onclick="showSection('main-menu')">⬅️ Назад</button>
         </div>
 
         <div id="topic-7" class="section hidden-section">
             <h1>📚 Тема 7: Retention</h1>
-            
-            <!-- 
-              ЗАМІНІТЬ 'https://t.me/your_channel_name/101' на посилання на ваш пост
-              ЗАМІНІТЬ 'Стаття про початок' на назву вашої статті
-            -->
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/71')">
-                Підтримка інтересу RU
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/74')">
-                Як повертати RU - рекомендації, приклади
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/77')">
-                Як не втратити RU під час роботи з запереченнями
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/80')">
-                Як оживити старий чат, де RU не відповідав тижнями
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/83')">
-                Як працювати із RU, які надсилають свої контакти у чат, або дуже пушать на КІ
-            </a>
-            
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/71')">Підтримка інтересу RU</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/74')">Як повертати RU - рекомендації, приклади</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/77')">Як не втратити RU під час роботи з запереченнями</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/80')">Як оживити старий чат, де RU не відповідав тижнями</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/83')">Як працювати із RU, які надсилають свої контакти у чат</a>
             <button class="back-button" onclick="showSection('main-menu')">⬅️ Назад</button>
         </div>
 
         <div id="topic-8" class="section hidden-section">
             <h1>📚 Тема 8: Tableau</h1>
-            
-            <!-- 
-              ЗАМІНІТЬ 'https://t.me/your_channel_name/101' на посилання на ваш пост
-              ЗАМІНІТЬ 'Стаття про початок' на назву вашої статті
-            -->
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/89')">
-                Гайд по роботі з TU score, TU activity, Partner’s details
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/93')">
-                Гайд по роботі з Ices у Tableau + TU avatar CTR
-            </a>
-            <a href="#" class="article-link" onclick="openPost('https://t.me/c/2546267701/100')">
-                Гайд по роботі із Connections with users + RU-TU interaction
-            </a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/89')">Гайд по роботі з TU score, TU activity, Partner’s details</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/93')">Гайд по роботі з Ices у Tableau + TU avatar CTR</a>
+            <a href="#" class="article-link" onclick="openPost(event, 'https://t.me/c/2546267701/100')">Гайд по роботі із Connections with users + RU-TU interaction</a>
             <button class="back-button" onclick="showSection('main-menu')">⬅️ Назад</button>
         </div>
 
     </div>
 
     <script>
-        // Ініціалізація Telegram Web App
-        let tg = window.Telegram.WebApp;
-        tg.ready(); // Повідомляємо Telegram, що наш додаток готовий
-
-        // Розширюємо додаток на всю висоту
+        const tg = window.Telegram.WebApp;
+        tg.ready();
         tg.expand();
 
-        // Функція для перемикання секцій
         function showSection(sectionId) {
-            // Ховаємо всі секції
             document.querySelectorAll('.section').forEach(section => {
                 section.style.display = 'none';
             });
-            
-            // Показуємо потрібну секцію
             document.getElementById(sectionId).style.display = 'block';
-            
-            // Прокручуємо нагору
             window.scrollTo(0, 0);
         }
 
-        // Функція для відкриття посилання на пост
-        function openPost(url) {
-            event.preventDefault(); // Запобігаємо стандартному переходу за посиланням
-            
-            // Використовуємо метод Telegram для відкриття посилання
-            // Це закриє Mini App і перекине користувача на пост
-            tg.openTelegramLink(url);
-            
-            // НЕОБОВ'ЯЗКОВО: Закриваємо Mini App (хоча openTelegramLink зазвичай робить це сам)
-            // tg.close(); 
+        function openPost(event, url) {
+            event.preventDefault();
+            try {
+                if (tg && typeof tg.openTelegramLink === 'function') {
+                    tg.openTelegramLink(url);
+                } else {
+                    window.open(url, '_blank');
+                }
+            } catch (e) {
+                console.warn('Fallback to browser link', e);
+                window.open(url, '_blank');
+            }
         }
 
-        // Показуємо головне меню при старті
         showSection('main-menu');
     </script>
 </body>
 </html>
-
-
-
